@@ -1,4 +1,4 @@
-<?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
+<?php
 
 namespace Automattic\Jetpack\Backup;
 
@@ -11,7 +11,7 @@ use function apply_filters;
  *
  * @package automattic/jetpack-backup
  */
-class Test_Package_Version extends TestCase {
+class Package_Version_Test extends TestCase {
 
 	/**
 	 * Tests that the backup package version is added to the package versions array obtained by the

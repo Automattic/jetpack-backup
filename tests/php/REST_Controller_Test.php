@@ -1,4 +1,9 @@
-<?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
+<?php
+/**
+ * Unit tests for the REST_Controller class.
+ *
+ * @package automattic/jetpack-backup
+ */
 
 // After changing this file, consider increasing the version number ("VXXX") in all the files using this namespace, in
 // order to ensure that the specific version of this file always get loaded. Otherwise, Jetpack autoloader might decide
@@ -24,12 +29,7 @@ use function wp_insert_user;
 use function wp_json_encode;
 use function wp_set_current_user;
 
-/**
- * Unit tests for the REST_Controller class.
- *
- * @package automattic/jetpack-backup
- */
-class Test_REST_Controller extends TestCase {
+class REST_Controller_Test extends TestCase {
 
 	/**
 	 * REST Server object.
@@ -78,7 +78,6 @@ class Test_REST_Controller extends TestCase {
 	public function tear_down() {
 		wp_set_current_user( 0 );
 
-		// phpcs:disable WordPress.Security.NonceVerification.Recommended
 		unset(
 			$_GET['_for'],
 			$_GET['token'],
@@ -88,7 +87,6 @@ class Test_REST_Controller extends TestCase {
 			$_GET['signature'],
 			$_SERVER['REQUEST_METHOD']
 		);
-		// phpcs:enable WordPress.Security.NonceVerification.Recommended
 
 		WorDBless_Options::init()->clear_options();
 		WorDBless_Posts::init()->clear_all_posts();
@@ -127,7 +125,6 @@ class Test_REST_Controller extends TestCase {
 	 */
 	public function test_install_backup_helper_script_success() {
 		$body = array(
-			// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode
 			'helper' => base64_encode( "<?php /* Jetpack Backup Helper Script */\n\$path = '[wp_path]'\n" ),
 		);
 
@@ -140,25 +137,21 @@ class Test_REST_Controller extends TestCase {
 		$this->assertEquals(
 			200,
 			$response->get_status(),
-			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_export
 			'Non-HTTP 200 response with data: ' . var_export( $response_data, true )
 		);
 		$this->assertArrayHasKey(
 			'url',
 			$response_data,
-			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_export
 			'Response should have "url" key: ' . var_export( $response_data, true )
 		);
 		$this->assertArrayHasKey(
 			'abspath',
 			$response_data,
-			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_export
 			'Response should have "abspath" key: ' . var_export( $response_data, true )
 		);
 		$this->assertArrayHasKey(
 			'path',
 			$response_data,
-			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_export
 			'Response should have "path" key: ' . var_export( $response_data, true )
 		);
 
@@ -171,7 +164,6 @@ class Test_REST_Controller extends TestCase {
 	 */
 	public function test_install_backup_helper_script_bad_header() {
 		$body = array(
-			// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode
 			'helper' => base64_encode( 'totally not a helper script' ),
 		);
 
@@ -236,7 +228,6 @@ class Test_REST_Controller extends TestCase {
 	 */
 	public function test_delete_backup_helper_script_bad_header() {
 		$path = tempnam( sys_get_temp_dir(), 'helper-script' );
-		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents
 		file_put_contents( $path, str_repeat( 'a', 1024 ) );
 
 		$body = array( 'path' => $path );
@@ -483,8 +474,6 @@ class Test_REST_Controller extends TestCase {
 		$_GET['timestamp'] = $timestamp;
 		$_GET['nonce']     = $nonce;
 		$_GET['body-hash'] = $body_hash;
-		// This is intentionally using base64_encode().
-		// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode
 		$_GET['signature'] = base64_encode(
 			hash_hmac(
 				'sha1',
