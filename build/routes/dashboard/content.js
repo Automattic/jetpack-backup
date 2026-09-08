@@ -7,13 +7,14 @@
 // loaders are pinned to the .min.js sibling.
 
 __( "Loading", "jetpack-backup-pkg" );
+/* translators: %s: keyboard shortcut. */
+__( "Keyboard shortcut: %s", "jetpack-backup-pkg" );
+__( "Close", "jetpack-backup-pkg" );
 /* translators: accessibility text appended to link text */
 __( "(opens in a new tab)", "jetpack-backup-pkg" );
 __( "Something went wrong", "jetpack-backup-pkg" );
 __( "The page ran into an unexpected problem. Your backups are unaffected.", "jetpack-backup-pkg" );
 __( "Reload the page", "jetpack-backup-pkg" );
-/* translators: %s: keyboard shortcut. */
-__( "Keyboard shortcut: %s", "jetpack-backup-pkg" );
 /* translators: 1: Calendar type. 2: Current month and year. */
 __( "%1$s, %2$s", "jetpack-backup-pkg" );
 __( "Date calendar", "jetpack-backup-pkg" );
@@ -219,6 +220,11 @@ __( "The site doesn't appear to be connected. Backup requires an active Jetpack 
 /* translators: 1: what failed, in our own words. 2: the reason WordPress.com gave, usually in English. */
 __( "%1$s WordPress.com said: %2$s", "jetpack-backup-pkg" );
 __( "Request failed", "jetpack-backup-pkg" );
+__( "Restore in progress", "jetpack-backup-pkg" );
+__( "Restore complete", "jetpack-backup-pkg" );
+__( "Restore didn't finish", "jetpack-backup-pkg" );
+/* translators: %s: date and time of the backup that was restored. */
+__( "Restore to %s", "jetpack-backup-pkg" );
 __( "Try again", "jetpack-backup-pkg" );
 __( "We couldn't load your site's activity.", "jetpack-backup-pkg" );
 __( "Icon", "jetpack-backup-pkg" );
@@ -232,6 +238,10 @@ _x( "%s MB", "file size in megabytes", "jetpack-backup-pkg" );
 _x( "%s GB", "file size in gigabytes", "jetpack-backup-pkg" );
 /* translators: %s: a file size number, e.g. "512". */
 _x( "%s B", "file size in bytes", "jetpack-backup-pkg" );
+__( "Modified:", "jetpack-backup-pkg" );
+__( "Size:", "jetpack-backup-pkg" );
+__( "Type:", "jetpack-backup-pkg" );
+__( "Hash:", "jetpack-backup-pkg" );
 __( "This preview is hidden because it contains sensitive information.", "jetpack-backup-pkg" );
 __( "Show preview", "jetpack-backup-pkg" );
 __( "Preview unavailable for this file.", "jetpack-backup-pkg" );
@@ -240,10 +250,6 @@ __( "Preview could not be loaded for this file.", "jetpack-backup-pkg" );
 __( "This file is not text and cannot be previewed.", "jetpack-backup-pkg" );
 __( "Preview truncated: this file is too large to show in full.", "jetpack-backup-pkg" );
 __( "Close preview", "jetpack-backup-pkg" );
-__( "Modified:", "jetpack-backup-pkg" );
-__( "Size:", "jetpack-backup-pkg" );
-__( "Type:", "jetpack-backup-pkg" );
-__( "Hash:", "jetpack-backup-pkg" );
 /* translators: %s: file name. */
 __( "Preview of %s", "jetpack-backup-pkg" );
 __( "We couldn't load this backup's files.", "jetpack-backup-pkg" );
@@ -345,5 +351,6 @@ __( "Backup activity", "jetpack-backup-pkg" );
 __( "Select an item from the list to see details.", "jetpack-backup-pkg" );
 __( "We couldn't load this item.", "jetpack-backup-pkg" );
 __( "Loading item details…", "jetpack-backup-pkg" );
+__( "That restore isn't among this site's most recent ones any more.", "jetpack-backup-pkg" );
 __( "That item isn't on this page of the activity log. It may be on another page, or no longer available.", "jetpack-backup-pkg" );
 __( "Clear selection", "jetpack-backup-pkg" );
