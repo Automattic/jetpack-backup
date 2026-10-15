@@ -11,11 +11,11 @@
 		"automattic/jetpack-backup-helper-script-manager": "^0.4.0",
 		"automattic/jetpack-composer-plugin": "^5.0.0",
 		"automattic/jetpack-config": "^4.0.0",
-		"automattic/jetpack-connection": "^9.12.0-alpha",
+		"automattic/jetpack-connection": "^9.12.0",
 		"automattic/jetpack-constants": "^4.0.0",
 		"automattic/jetpack-jitm": "^5.1.4-alpha",
 		"automattic/jetpack-my-jetpack": "^6.11.0-alpha",
-		"automattic/jetpack-sync": "^5.4.2-alpha",
+		"automattic/jetpack-sync": "^5.4.2",
 		"automattic/jetpack-status": "^7.1.0",
 		"automattic/jetpack-wp-abilities": "^0.2.0",
 		"automattic/jetpack-wp-build-polyfills": "^0.6.4-alpha"
